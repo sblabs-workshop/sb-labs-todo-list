@@ -8,3 +8,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get("/", \App\Http\Controllers\TodoListController::class . "@index")->name("todolist.index");
+Route::post("/", \App\Http\Controllers\TodoListController::class . "@store")->name("todolist.store");

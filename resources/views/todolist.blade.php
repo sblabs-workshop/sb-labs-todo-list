@@ -40,32 +40,36 @@
                 </div>
 
                 <div class="flex flex-col gap-4 max-h-[400px] overflow-y-auto border border-white/50 p-5 rounded-lg bg-white/5 backdrop-blur-sm">
-                    <div class="flex items-start gap-4 bg-white text-black p-4 rounded-lg shadow-md">
-                        <input type="checkbox" class="w-5 h-5 accent-black mt-1 cursor-pointer">
-                        <div class="flex flex-col flex-grow">
-                            <h4 class="text-lg font-semibold">Task Title</h4>
-                            <p class="text-sm text-gray-600">Task description goes here. This is a sample description for the task.</p>
+                    @if ($tasks->count() > 0)
+                        @foreach ($tasks as $task)
+                            <div class="flex items-start gap-4 bg-white text-black p-4 rounded-lg shadow-md">
+                                <input type="checkbox" class="w-5 h-5 accent-black mt-1 cursor-pointer" {{ $task->completed ? 'checked' : '' }}>
+                                <div class="flex flex-col flex-grow">
+                                    <h4 class="text-lg font-semibold {{ $task->completed ? 'line-through' : '' }}">{{ $task->title }}</h4>
+                                    <p class="text-sm text-gray-600 {{ $task->completed ? 'line-through' : '' }}">{{ $task->description }}</p>
+                                </div>
+                                <div class="flex items-center gap-2 ml-auto">
+                                    <button class="text-amber-600 hover:bg-amber-100 py-1 px-3 rounded-md border border-amber-600 transition-all cursor-pointer" onclick="editTasks({{ $task }});">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:bg-red-100 py-1 px-3 rounded-md border border-red-600 transition-all cursor-pointer">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="text-white text-center py-10">
+                            No tasks available.
                         </div>
-                        <div class="flex items-center gap-2 ml-auto">
-                            <button class="text-amber-600 hover:bg-amber-100 py-1 px-3 rounded-md border border-amber-600 transition-all cursor-pointer" onclick="editToggleModal();">
-                                <i class="fa-solid fa-pen"></i>
-                            </button>
-                            <button class="text-red-600 hover:bg-red-100 py-1 px-3 rounded-md border border-red-600 transition-all cursor-pointer">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="text-white text-center py-10">
-                        No tasks available.
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
 
-    @include('components.add-todo-modal');
-    @include('components.edit-todo-modal');
+    @include('components.todo-modal');
+
     <script src="{{ asset('javascript/todolist.js') }}"></script>
 </body>
 
