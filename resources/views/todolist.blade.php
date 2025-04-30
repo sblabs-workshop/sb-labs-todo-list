@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body class="bg-[#2A5C3A] text-white font-sans">
+<body class="bg-black text-white font-sans">
     <div class="flex flex-col h-screen px-6 py-4">
         <div class="flex items-center">
             <img src="{{ asset('images/sblabs-logo-white.png') }}" alt="Logo" class="w-32">
@@ -41,7 +41,7 @@
 
                 <div class="flex flex-col gap-4 max-h-[400px] overflow-y-auto border border-white/50 p-5 rounded-lg bg-white/5 backdrop-blur-sm">
                     <div class="flex items-start gap-4 bg-white text-black p-4 rounded-lg shadow-md">
-                        <input type="checkbox" class="w-5 h-5 accent-[#2A5C3A] mt-1 cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 accent-black mt-1 cursor-pointer">
                         <div class="flex flex-col flex-grow">
                             <h4 class="text-lg font-semibold">Task Title</h4>
                             <p class="text-sm text-gray-600">Task description goes here. This is a sample description for the task.</p>
