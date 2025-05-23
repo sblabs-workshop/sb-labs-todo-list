@@ -14,14 +14,28 @@
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
 
             <div class="drawer-side">
-                <ul class="menu bg-black text-base-content min-h-full w-64 p-4">
+                <div class="menu bg-black text-base-content min-h-full w-64 p-4">
                     <div class="brand-logo mb-5 pl-2">
                         <img src="{{ asset('images/sblabs-logo-white.png') }}" alt="Logo" class="w-36">
                     </div>
 
-                    <!-- Sidebar content here -->
-                    <li class="text-[14px]"><a href="/products">Manage Products</a></li>
-                </ul>
+                    <!-- Main navigation items -->
+                    <ul class="flex-1 space-y-2">
+                        <li class="text-[14px]"><a href="/products">Manage Products</a></li>
+                        {{-- Add more links as needed --}}
+                    </ul>
+
+                    <!-- Logout at the bottom -->
+                    <ul>
+                        <li class="text-[14px">
+                            <a href="/logout" class="flex flex-row items-center gap-2 w-full">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
 
